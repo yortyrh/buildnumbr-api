@@ -1,7 +1,6 @@
 import { Module } from '@nestjs/common';
 import { HealthModule } from './health/health.module';
 import { ConfigModule } from '@nestjs/config';
-import { validate } from './env.validation';
 import { LoggerModule } from 'nestjs-pino';
 
 @Module({
@@ -11,7 +10,6 @@ import { LoggerModule } from 'nestjs-pino';
     ConfigModule.forRoot({
       cache: true,
       isGlobal: true,
-      validate,
     }),
   ],
   controllers: [],
