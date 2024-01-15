@@ -105,6 +105,8 @@
       ".module.ts",
       ".config.ts",
       "src/main.ts",
+      "src/lambda.ts",
+      "src/bootstrap.ts",
       "test",
       ".mock.ts"
     ],
