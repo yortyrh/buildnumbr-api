@@ -18,6 +18,13 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "esModuleInterop": true,
-    "paths": {}
+    "paths": {
+      "@utils/utils": [
+        "libs/utils/src"
+      ],
+      "@utils/utils/*": [
+        "libs/utils/src/*"
+      ]
+    }
   }
 }

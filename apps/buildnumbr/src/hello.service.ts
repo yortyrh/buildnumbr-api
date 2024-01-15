@@ -6,6 +6,6 @@ export class HelloService {
 
   hello(): string {
     this.logger.log('calling hello world');
-    return 'Hello World!!'
+    return 'Hello World!!';
   }
 }
