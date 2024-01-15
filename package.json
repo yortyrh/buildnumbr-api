@@ -1,23 +1,23 @@
 {
-  "name": "sitewebr-build-counter-api",
+  "name": "sitewebr-buildnumbr-api",
   "version": "1.0.0",
   "description": "",
   "author": "Yorty Ruiz <yorty.ruiz@gmail.com>",
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "nest build --builder webpack --webpackPath webpack.config.js",
+    "build": "nest build --builder webpack --webpackPath webpack.lambda.config.js",
     "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch | pino-pretty",
     "start:debug": "nest start --debug --watch | pino-pretty",
-    "start:prod": "node dist/apps/dynamodbsample1/main",
+    "start:prod": "node dist/apps/buildnumbr/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./apps/dynamodbsample1/test/jest-e2e.json"
+    "test:e2e": "jest --config apps/buildnumbr/test/jest-e2e.json"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
@@ -102,6 +102,7 @@
       "test-config",
       "interfaces",
       "jestGlobalMocks.ts",
+      "index.ts",
       ".module.ts",
       ".config.ts",
       "src/main.ts",
@@ -112,7 +113,11 @@
     ],
     "testEnvironment": "node",
     "roots": [
-      "<rootDir>/apps/"
-    ]
+      "<rootDir>/apps/",
+      "<rootDir>/libs/"
+    ],
+    "moduleNameMapper": {
+      "^@utils/utils(|/.*)$": "<rootDir>/libs/utils/src/$1"
+    }
   }
 }

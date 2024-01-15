@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
-import { HealthModule } from './health/health.module';
-import { ConfigModule } from '@nestjs/config';
 import { LoggerModule } from 'nestjs-pino';
+import { ConfigModule } from '@nestjs/config';
+import { HealthModule } from '@utils/utils/health/health.module';
 
 @Module({
   imports: [
@@ -12,8 +12,7 @@ import { LoggerModule } from 'nestjs-pino';
       isGlobal: true,
     }),
   ],
-  controllers: [],
   providers: [],
   exports: [],
 })
-export class CommonModule {}
+export class UtilsModule {}

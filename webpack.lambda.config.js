@@ -7,10 +7,10 @@ module.exports = function (options) {
     ...options,
     entry: {
       lambda: {
-        import: './apps/dynamodbsample1/src/lambda.ts',
+        import: './apps/buildnumbr/src/lambda.ts',
       },
       main: {
-        import: './apps/dynamodbsample1/src/main.ts',
+        import: './apps/buildnumbr/src/main.ts',
       },
     },
     output: {

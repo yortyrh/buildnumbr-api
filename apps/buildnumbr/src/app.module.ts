@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { CommonModule } from '../../common/src/common.module';
 import { HelloController } from './hello.controller';
 import { HelloService } from './hello.service';
+import { UtilsModule } from '@utils/utils';
 
 @Module({
-  imports: [CommonModule],
+  imports: [UtilsModule],
   controllers: [HelloController],
   providers: [HelloService],
 })
