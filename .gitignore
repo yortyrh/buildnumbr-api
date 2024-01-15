@@ -34,6 +34,10 @@ lerna-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# Serverless
+node_modules
+.serverless
+
 # Custom
 .env
 /junit.xml

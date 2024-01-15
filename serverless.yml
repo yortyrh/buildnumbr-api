@@ -1,0 +1,60 @@
+service: sitewebr-build-counter-api
+frameworkVersion: '3'
+
+plugins:
+  - serverless-dynamodb-autoscaling
+
+custom:
+  tableName: 'projects-table-${sls:stage}'
+  capacities:
+    - table: ProjectsTable
+      read:
+        minimum: 1        # Minimum read capacity
+        maximum: 10       # Maximum read capacity
+        usage: 0.1        # Targeted usage percentage
+      write:
+        minimum: 1       # Minimum write capacity
+        maximum: 10      # Maximum write capacity
+        usage: 0.1       # Targeted usage percentage
+
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - dynamodb:Query
+            - dynamodb:Scan
+            - dynamodb:GetItem
+            - dynamodb:PutItem
+            - dynamodb:UpdateItem
+            - dynamodb:DeleteItem
+          Resource:
+            - Fn::GetAtt: [ ProjectsTable, Arn ]
+  environment:
+    PROJECTS_TABLE: ${self:custom.tableName}
+
+functions:
+  api:
+    handler: dist/lambda.handler
+    events:
+      - httpApi: '*'
+
+resources:
+  Resources:
+    ProjectsTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        AttributeDefinitions:
+          - AttributeName: projectId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: projectId
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 5
+          WriteCapacityUnits: 5
+        TableName: ${self:custom.tableName}
