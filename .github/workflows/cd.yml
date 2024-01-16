@@ -38,9 +38,6 @@ jobs:
       - name: Run build
         run: npm run build
 
-      - name: Cleanup dependencies
-        run: npm prune --production
-
       - name: serverless deploy
         uses: serverless/github-action@v3.2
         with:
