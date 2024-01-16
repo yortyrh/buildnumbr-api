@@ -1,11 +1,22 @@
-service: sitewebr-build-counter-api
+service: buildnumbr-api
 frameworkVersion: '3'
 
 plugins:
   - serverless-dynamodb-autoscaling
+  - serverless-domain-manager
 
 custom:
-  tableName: 'projects-table-${sls:stage}'
+  tableName: 'projects-table'
+  customDomains:
+    domainName: 'buildnumbr.com'
+    basePath: ''
+    stage: '$default'
+    certificateName: 'buildnumbr.com'
+    createRoute53Record: true
+    createRoute53IPv6Record: true
+    endpointType: regional
+    apiType: http
+    securityPolicy: tls_1_2
   capacities:
     - table: ProjectsTable
       read:
