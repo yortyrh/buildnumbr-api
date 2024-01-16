@@ -54,6 +54,7 @@
     "pino-pretty": "^10.3.1",
     "prettier": "^3.2.2",
     "prettier-plugin-organize-imports": "^3.2.4",
+    "serverless-domain-manager": "^7.3.3",
     "source-map-support": "^0.5.21",
     "supertest": "^6.3.3",
     "terser-webpack-plugin": "^5.3.10",
