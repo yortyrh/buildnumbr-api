@@ -3,10 +3,7 @@
   "rootDir": "../../..",
   "testEnvironment": "node",
   "testRegex": ".e2e-spec.ts$",
-  "roots": [
-    "<rootDir>/apps/",
-    "<rootDir>/libs/"
-  ],
+  "roots": ["<rootDir>/apps/buildnumbr/test"],
   "moduleNameMapper": {
     "^@utils/utils(|/.*)$": "<rootDir>/libs/utils/src/$1"
   },
