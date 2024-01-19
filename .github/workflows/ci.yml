@@ -31,3 +31,5 @@ jobs:
 
       - name: Run e2e
         run: npm run test:e2e
+        env:
+          PROJECTS_TABLE: projects-table
