@@ -17,6 +17,10 @@ import { ConfigService } from '@nestjs/config';
                 apiVersion: 'latest',
                 region: 'local',
                 endpoint: 'http://localhost:8080',
+                credentials: {
+                  accessKeyId: 'aaa',
+                  secretAccessKey: 'bbb',
+                },
               }
             : {
                 region: config.get<string>('AWS_REGION'),
