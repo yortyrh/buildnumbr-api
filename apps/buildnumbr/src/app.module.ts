@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { HelloController } from './hello.controller';
-import { HelloService } from './hello.service';
 import { UtilsModule } from '@utils/utils';
+import { ProjectsModule } from './projects/projects.module';
+import { DynamodbModule } from './dynamodb/dynamodb.module';
 
 @Module({
-  imports: [UtilsModule],
-  controllers: [HelloController],
-  providers: [HelloService],
+  imports: [UtilsModule, ProjectsModule, DynamodbModule],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

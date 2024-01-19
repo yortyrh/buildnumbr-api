@@ -41,3 +41,4 @@ node_modules
 # Custom
 .env
 /junit.xml
+/mydb/
