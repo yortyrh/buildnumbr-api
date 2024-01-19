@@ -25,6 +25,10 @@ describe('AppController (e2e)', () => {
       apiVersion: 'latest',
       region: 'local',
       endpoint: 'http://localhost:8080',
+      credentials: {
+        accessKeyId: 'aaa',
+        secretAccessKey: 'bbb',
+      },
     });
     const dynamoDbClient = DynamoDBDocumentClient.from(client);
     await dynamoDbClient.send(
