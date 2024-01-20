@@ -4,7 +4,6 @@ frameworkVersion: '3'
 plugins:
   - serverless-dynamodb-autoscaling
   - serverless-domain-manager
-  - serverless-plugin-warmup
 
 custom:
   tableName: 'projects-table'
@@ -51,16 +50,9 @@ provider:
 
 functions:
   api:
-    warmup: true
     handler: dist/lambda.handler
     events:
       - httpApi: '*'
-
-iamRoleStatements:
-  - Effect: 'Allow'
-    Action:
-      - 'lambda:InvokeFunction'
-    Resource: "*"
 
 resources:
   Resources:
