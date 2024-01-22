@@ -10,25 +10,25 @@
 2
 ❯ curl -s https://buildnumbr.com/my-app
 3
-❯ curl -s https://buildnumbr.com/my-other-awesome-app
+❯ curl -s https://buildnumbr.com/my-other-app
 1
-❯ curl -s https://buildnumbr.com/my-other-awesome-app/set/1267
-1267
-❯ curl -s https://buildnumbr.com/my-other-awesome-app
-1268
+❯ curl -s https://buildnumbr.com/my-other-app/set/1234
+1234
+❯ curl -s https://buildnumbr.com/my-other-app
+1235
 # Get the current value without incrementing
-❯ curl -s https://buildnumbr.com/my-other-awesome-app/get
-1268
+❯ curl -s https://buildnumbr.com/my-other-app/get
+1235
 ```
 
 ## Why?
 
-- Automatically incrementing the build number allows you to easily figure out what is the highest build number out there.
-- If you give every build that you make its own build number / version code, you can easily figure out which build caused trouble if problems arise.
-- As an iOS developer, you are required to increase the build number for each binary that you upload. If you forget it, the binary will be rejected, and you will have to compile and upload again.
-- As an Android developer, you are required to increase the version code for each app bundle that you upload. If you forget it, the binary will be rejected even if it belongs to a previous version.
-- You want to use continuous integration and don't want to commit build number / version code increases.
-- You need to have de-centralized builds where part of the team is allowed to build and deploy to google play / app store and at the same time make sure the version code / build number increases with every deploy.
+- Automatically increasing the build number provides an easy means to identify the latest build in the sequence.
+- Assigning a unique build number/version code to each build facilitates quick identification of problematic builds when issues arise.
+- iOS developers must increment the build number for each uploaded binary; failure to do so leads to rejection, requiring recompilation and re-upload.
+- Android developers must raise the version code for each app bundle upload; overlooking this results in rejection, even for a previous version.
+- Ensuring continuous integration, without the need to manually commit build number/version code increments, is desirable.
+- Achieving decentralized builds allows a subset of the team to build and deploy to Google Play/App Store while ensuring continuous incrementation of version codes/build numbers with each deployment.
 
 ## Integrating with your project
 
@@ -149,11 +149,11 @@ re='^[0-9]+$'
 fi
 ```
 
-- **My current build number is already at 2498. How can I make buildnumbr.com start from this number?**<br>
+- **My current build number is already at 123. How can I make buildnumbr.com start from this number?**<br>
   There is another endpoint for this. Simply append `/set/{your_number}` and your counter will jump to this number.
 
 ```sh
-curl https://buildnumbr.com/my-app/set/2498
+curl https://buildnumbr.com/my-app/set/123
 ```
 
 ## Credits
