@@ -46,6 +46,7 @@ provider:
           Resource:
             - Fn::GetAtt: [ ProjectsTable, Arn ]
   environment:
+    NODE_ENV: production
     PROJECTS_TABLE: ${self:custom.tableName}
 
 functions:
