@@ -4,9 +4,16 @@ frameworkVersion: '3'
 plugins:
   - serverless-dynamodb-autoscaling
   - serverless-domain-manager
+  - serverless-plugin-warmup
 
 custom:
   tableName: 'projects-table'
+  warmup:
+    default:
+      enabled: true
+      prewarm: true
+      events:
+        - schedule: rate(5 minutes)
   customDomains:
     domainName: 'buildnumbr.com'
     basePath: ''
@@ -54,6 +61,9 @@ functions:
     handler: dist/lambda.handler
     events:
       - httpApi: '*'
+    warmup:
+      default:
+        enabled: true
 
 resources:
   Resources:
