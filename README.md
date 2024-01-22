@@ -28,7 +28,7 @@
 - As an iOS developer, you are required to increase the build number for each binary that you upload. If you forget it, the binary will be rejected, and you will have to compile and upload again.
 - As an Android developer, you are required to increase the version code for each app bundle that you upload. If you forget it, the binary will be rejected even if it belongs to a previous version.
 - You want to use continuous integration and don't want to commit build number / version code increases.
-- You need to have de-centralized builds where part of the team if allowed to build and deploy to google play / app store and at the same time make sure the version code / build number increases with every deploy.
+- You need to have de-centralized builds where part of the team is allowed to build and deploy to google play / app store and at the same time make sure the version code / build number increases with every deploy.
 
 ## Integrating with your project
 
