@@ -1,9 +1,13 @@
-import { Controller, Get, Header, Param } from '@nestjs/common';
+import { Controller, Get, Header, Param, Redirect } from '@nestjs/common';
 import { ProjectsService } from './projects.service';
 
 @Controller()
 export class ProjectsController {
   constructor(private readonly projectsService: ProjectsService) {}
+
+  @Get()
+  @Redirect('https://www.buildnumbr.com', 301)
+  async index() {}
 
   @Get(':projectId')
   @Header('content-type', 'text/plain')
